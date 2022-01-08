@@ -4,8 +4,8 @@ export const spinner = () => html `<p>Loading &hellip;</p>`;
 
 export const field = ({label, name, type = 'text', value='', placeholder = '', erorr}) => {
     if(type == 'textarea') {
-        html `
-        <label class="ml">${label}: <textarea class=${classMap({erorr})} name=${name}
+        return html `
+         <label class="ml">${label}: <textarea class=${classMap({erorr})} name=${name}
         placeholder=${placeholder} .value=${value}></textarea></label>
         `
     } else {
@@ -14,3 +14,11 @@ export const field = ({label, name, type = 'text', value='', placeholder = '', e
         `
     }  
 };
+
+export const errorMsg = (errors) => {
+    if(errors) {
+        return html `<p class="error">${errors.message}</p>`
+    } else {
+        return null;
+    }
+}
